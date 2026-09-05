@@ -1,0 +1,68 @@
+{
+  "dataset_name": "NASA Ames PCoE Battery Aging Dataset",
+  "official_source": "NASA Ames Prognostics Center of Excellence (B. Saha & K. Goebel, 2007)",
+  "batteries_processed": [
+    "B0005",
+    "B0006",
+    "B0007",
+    "B0018"
+  ],
+  "total_discharge_cycles": 636,
+  "nominal_capacity_ah": 2.0,
+  "eol_threshold_80_ah": 1.6,
+  "eol_threshold_70_ah": 1.4,
+  "eol_cycle_summary": {
+    "B0005": {
+      "eol_80": 75,
+      "eol_70": 125,
+      "total_cycles": 168
+    },
+    "B0006": {
+      "eol_80": 63,
+      "eol_70": 109,
+      "total_cycles": 168
+    },
+    "B0007": {
+      "eol_80": 86,
+      "eol_70": null,
+      "total_cycles": 168,
+      "notes": "Ended at 1.4005 Ah; did not reach <= 1.40 Ah"
+    },
+    "B0018": {
+      "eol_80": 45,
+      "eol_70": 97,
+      "total_cycles": 132
+    }
+  },
+  "extracted_features": [
+    "duration_s",
+    "v_start",
+    "v_end",
+    "v_min",
+    "v_max",
+    "v_mean",
+    "v_drop",
+    "i_mean",
+    "i_min",
+    "i_max",
+    "t_start",
+    "t_end",
+    "t_min",
+    "t_max",
+    "t_mean",
+    "temp_rise",
+    "temp_rise_rate",
+    "energy_wh",
+    "re_electrolyte_ohms",
+    "rct_charge_transfer_ohms"
+  ],
+  "ground_truth_targets": [
+    "capacity_ah",
+    "soh_pct",
+    "soh_first_cycle_pct",
+    "rul_80",
+    "rul_70"
+  ],
+  "leakage_protection": "All cycle features computed strictly from intra-cycle measurements or causal preceding impedance sweeps; no future-cycle leakage.",
+  "processed_at": "2026-09-02T22:06:40.809365"
+}

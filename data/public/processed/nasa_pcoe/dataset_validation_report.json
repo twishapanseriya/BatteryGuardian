@@ -1,0 +1,148 @@
+{
+  "milestone": 9,
+  "title": "NASA PCoE Battery Aging Dataset - Formal Validation & Splitting Report",
+  "dataset_name": "NASA Ames Prognostics Center of Excellence (PCoE) Li-ion Aging Dataset",
+  "batteries_analyzed": [
+    "B0005",
+    "B0006",
+    "B0007",
+    "B0018"
+  ],
+  "total_discharge_cycles": 636,
+  "dataset_dimensions": {
+    "total_rows": 636,
+    "total_columns": 32,
+    "train_rows": 336,
+    "val_rows": 168,
+    "test_rows": 132
+  },
+  "raw_segmentation_validation": {
+    "B0005": {
+      "total_raw_operations": 616,
+      "operation_counts": {
+        "charge": 170,
+        "discharge": 168,
+        "impedance": 278,
+        "other": 0
+      },
+      "discharge_cycles_with_valid_capacity": 168,
+      "invalid_capacity_cycles": 0,
+      "segmentation_valid": true,
+      "first_capacity_ah": 1.8564874208181574,
+      "last_capacity_ah": 1.3250793286429356
+    },
+    "B0006": {
+      "total_raw_operations": 616,
+      "operation_counts": {
+        "charge": 170,
+        "discharge": 168,
+        "impedance": 278,
+        "other": 0
+      },
+      "discharge_cycles_with_valid_capacity": 168,
+      "invalid_capacity_cycles": 0,
+      "segmentation_valid": true,
+      "first_capacity_ah": 2.035337591005598,
+      "last_capacity_ah": 1.1856752327929356
+    },
+    "B0007": {
+      "total_raw_operations": 616,
+      "operation_counts": {
+        "charge": 170,
+        "discharge": 168,
+        "impedance": 278,
+        "other": 0
+      },
+      "discharge_cycles_with_valid_capacity": 168,
+      "invalid_capacity_cycles": 0,
+      "segmentation_valid": true,
+      "first_capacity_ah": 1.89105229539079,
+      "last_capacity_ah": 1.4324552720625434
+    },
+    "B0018": {
+      "total_raw_operations": 319,
+      "operation_counts": {
+        "charge": 134,
+        "discharge": 132,
+        "impedance": 53,
+        "other": 0
+      },
+      "discharge_cycles_with_valid_capacity": 132,
+      "invalid_capacity_cycles": 0,
+      "segmentation_valid": true,
+      "first_capacity_ah": 1.8550045207910817,
+      "last_capacity_ah": 1.341051440640485
+    }
+  },
+  "feature_target_integrity_validation": {
+    "capacity_bounds": true,
+    "soh_formula_exact_match": true,
+    "rul_checks": {
+      "B0005_rul80_decrement_by_1": true,
+      "B0005_rul80_at_eol_is_zero": true,
+      "B0006_rul80_decrement_by_1": true,
+      "B0006_rul80_at_eol_is_zero": true,
+      "B0007_rul80_decrement_by_1": true,
+      "B0007_rul80_at_eol_is_zero": true,
+      "B0018_rul80_decrement_by_1": true,
+      "B0018_rul80_at_eol_is_zero": true
+    },
+    "v_start_in_range_3.8_to_4.3V": true,
+    "v_min_in_range_1.5_to_3.0V": true,
+    "duration_positive_and_realistic": true,
+    "temperature_in_range_15_to_50C": true,
+    "temp_rise_non_negative": true,
+    "zero_feature_target_overlap": true
+  },
+  "battery_splits": {
+    "train": {
+      "batteries": [
+        "B0006",
+        "B0005"
+      ],
+      "cycles": 336,
+      "percentage": 52.83,
+      "cycle_range_per_battery": {
+        "B0006": 168,
+        "B0005": 168
+      },
+      "file": "/home/Twisha/Startup/data/public/processed/nasa_pcoe/train_cycles.csv"
+    },
+    "validation": {
+      "batteries": [
+        "B0007"
+      ],
+      "cycles": 168,
+      "percentage": 26.42,
+      "cycle_range_per_battery": {
+        "B0007": 168
+      },
+      "file": "/home/Twisha/Startup/data/public/processed/nasa_pcoe/val_cycles.csv"
+    },
+    "test": {
+      "batteries": [
+        "B0018"
+      ],
+      "cycles": 132,
+      "percentage": 20.75,
+      "cycle_range_per_battery": {
+        "B0018": 132
+      },
+      "file": "/home/Twisha/Startup/data/public/processed/nasa_pcoe/test_cycles.csv"
+    },
+    "zero_battery_overlap_verified": true
+  },
+  "leakage_prevention_guarantees": [
+    "Battery-level isolation: Train, Validation, and Test sets contain mutually exclusive battery IDs.",
+    "Zero row-level shuffling across sets; no time-series autocorrelation leakage.",
+    "Intra-cycle feature causality: features for cycle k depend strictly on cycle k measurements or preceding operations.",
+    "Target isolation: Capacity, SoH, and RUL are strictly labeled as prediction targets and excluded from the feature set."
+  ],
+  "generated_artifacts": [
+    "data/public/processed/nasa_pcoe/train_cycles.csv",
+    "data/public/processed/nasa_pcoe/val_cycles.csv",
+    "data/public/processed/nasa_pcoe/test_cycles.csv",
+    "data/public/processed/nasa_pcoe/plots/train_val_test_split_overlap_check.png",
+    "data/public/processed/nasa_pcoe/plots/segmentation_counts_check.png"
+  ]
+}

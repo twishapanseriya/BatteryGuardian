@@ -1,0 +1,265 @@
+{
+  "scaler_type": "StandardScaler (z = (x - mean) / std)",
+  "fitted_on_batteries": [
+    "B0005",
+    "B0006"
+  ],
+  "training_samples": 336,
+  "feature_count": 23,
+  "created_at": "2026-09-05T14:45:04.689178",
+  "hardware_scaling_constants": {
+    "duration_s": {
+      "index": 0,
+      "unit": "seconds",
+      "mean": 3129.523869,
+      "std": 245.919191,
+      "median": 3086.075,
+      "iqr": 421.88,
+      "min": 2792.49,
+      "max": 3690.23,
+      "c_code_scaling_macro": "((raw_duration_s - (3129.523869f)) / (245.919191f))"
+    },
+    "v_start": {
+      "index": 1,
+      "unit": "Volts",
+      "mean": 4.188906,
+      "std": 0.00883,
+      "median": 4.18825,
+      "iqr": 0.014725,
+      "min": 4.1575,
+      "max": 4.2229,
+      "c_code_scaling_macro": "((raw_v_start - (4.188906f)) / (0.008830f))"
+    },
+    "v_end": {
+      "index": 2,
+      "unit": "Volts",
+      "mean": 3.388244,
+      "std": 0.342185,
+      "median": 3.5191,
+      "iqr": 0.287825,
+      "min": 2.1207,
+      "max": 3.6972,
+      "c_code_scaling_macro": "((raw_v_end - (3.388244f)) / (0.342185f))"
+    },
+    "v_min": {
+      "index": 3,
+      "unit": "Volts",
+      "mean": 2.532358,
+      "std": 0.130671,
+      "median": 2.4944,
+      "iqr": 0.2307,
+      "min": 2.1207,
+      "max": 2.7,
+      "c_code_scaling_macro": "((raw_v_min - (2.532358f)) / (0.130671f))"
+    },
+    "v_max": {
+      "index": 4,
+      "unit": "Volts",
+      "mean": 4.18897,
+      "std": 0.008785,
+      "median": 4.1883,
+      "iqr": 0.0146,
+      "min": 4.1576,
+      "max": 4.2229,
+      "c_code_scaling_macro": "((raw_v_max - (4.188970f)) / (0.008785f))"
+    },
+    "v_mean": {
+      "index": 5,
+      "unit": "Volts",
+      "mean": 3.490245,
+      "std": 0.054828,
+      "median": 3.49485,
+      "iqr": 0.112175,
+      "min": 3.4039,
+      "max": 3.5736,
+      "c_code_scaling_macro": "((raw_v_mean - (3.490245f)) / (0.054828f))"
+    },
+    "v_drop": {
+      "index": 6,
+      "unit": "Volts",
+      "mean": 1.65655,
+      "std": 0.123844,
+      "median": 1.68645,
+      "iqr": 0.216625,
+      "min": 1.4933,
+      "max": 2.0548,
+      "c_code_scaling_macro": "((raw_v_drop - (1.656550f)) / (0.123844f))"
+    },
+    "v_std": {
+      "index": 7,
+      "unit": "Volts",
+      "mean": 0.236506,
+      "std": 0.00943,
+      "median": 0.2347,
+      "iqr": 0.014375,
+      "min": 0.2171,
+      "max": 0.2637,
+      "c_code_scaling_macro": "((raw_v_std - (0.236506f)) / (0.009430f))"
+    },
+    "voltage_slope": {
+      "index": 8,
+      "unit": "Volts/second",
+      "mean": 0.000251,
+      "std": 8.6e-05,
+      "median": 0.000218,
+      "iqr": 5.2e-05,
+      "min": 0.000166,
+      "max": 0.000599,
+      "c_code_scaling_macro": "((raw_voltage_slope - (0.000251f)) / (0.000086f))"
+    },
+    "v_skew": {
+      "index": 9,
+      "unit": "dimensionless",
+      "mean": -0.550564,
+      "std": 0.250342,
+      "median": -0.4623,
+      "iqr": 0.15925,
+      "min": -1.6525,
+      "max": -0.3097,
+      "c_code_scaling_macro": "((raw_v_skew - (-0.550564f)) / (0.250342f))"
+    },
+    "dc_internal_resistance": {
+      "index": 10,
+      "unit": "Ohms",
+      "mean": 0.108288,
+      "std": 0.010647,
+      "median": 0.1042,
+      "iqr": 0.01621,
+      "min": 0.09213,
+      "max": 0.13145,
+      "c_code_scaling_macro": "((raw_dc_internal_resistance - (0.108288f)) / (0.010647f))"
+    },
+    "i_mean": {
+      "index": 11,
+      "unit": "Amperes",
+      "mean": -1.795647,
+      "std": 0.116866,
+      "median": -1.78645,
+      "iqr": 0.19795,
+      "min": -1.9998,
+      "max": -1.517,
+      "c_code_scaling_macro": "((raw_i_mean - (-1.795647f)) / (0.116866f))"
+    },
+    "i_min": {
+      "index": 12,
+      "unit": "Amperes",
+      "mean": -2.016679,
+      "std": 0.00271,
+      "median": -2.0162,
+      "iqr": 0.002625,
+      "min": -2.0291,
+      "max": -2.0132,
+      "c_code_scaling_macro": "((raw_i_min - (-2.016679f)) / (0.002710f))"
+    },
+    "i_max": {
+      "index": 13,
+      "unit": "Amperes",
+      "mean": 0.00185,
+      "std": 0.001649,
+      "median": 0.0017,
+      "iqr": 0.0016,
+      "min": -0.0038,
+      "max": 0.0088,
+      "c_code_scaling_macro": "((raw_i_max - (0.001850f)) / (0.001649f))"
+    },
+    "t_start": {
+      "index": 14,
+      "unit": "degrees Celsius",
+      "mean": 24.207708,
+      "std": 0.458732,
+      "median": 24.19,
+      "iqr": 0.54,
+      "min": 23.21,
+      "max": 26.65,
+      "c_code_scaling_macro": "((raw_t_start - (24.207708f)) / (0.458732f))"
+    },
+    "t_end": {
+      "index": 15,
+      "unit": "degrees Celsius",
+      "mean": 35.520208,
+      "std": 1.467743,
+      "median": 35.44,
+      "iqr": 1.745,
+      "min": 32.11,
+      "max": 39.57,
+      "c_code_scaling_macro": "((raw_t_end - (35.520208f)) / (1.467743f))"
+    },
+    "t_min": {
+      "index": 16,
+      "unit": "degrees Celsius",
+      "mean": 24.204732,
+      "std": 0.458165,
+      "median": 24.19,
+      "iqr": 0.53,
+      "min": 23.2,
+      "max": 26.65,
+      "c_code_scaling_macro": "((raw_t_min - (24.204732f)) / (0.458165f))"
+    },
+    "t_max": {
+      "index": 17,
+      "unit": "degrees Celsius",
+      "mean": 39.856994,
+      "std": 1.261407,
+      "median": 40.165,
+      "iqr": 2.1725,
+      "min": 36.98,
+      "max": 42.01,
+      "c_code_scaling_macro": "((raw_t_max - (39.856994f)) / (1.261407f))"
+    },
+    "t_mean": {
+      "index": 18,
+      "unit": "degrees Celsius",
+      "mean": 32.791964,
+      "std": 0.857476,
+      "median": 32.98,
+      "iqr": 1.35,
+      "min": 30.76,
+      "max": 34.49,
+      "c_code_scaling_macro": "((raw_t_mean - (32.791964f)) / (0.857476f))"
+    },
+    "temp_rise": {
+      "index": 19,
+      "unit": "degrees Celsius",
+      "mean": 15.649167,
+      "std": 1.222228,
+      "median": 15.97,
+      "iqr": 2.185,
+      "min": 12.99,
+      "max": 17.66,
+      "c_code_scaling_macro": "((raw_temp_rise - (15.649167f)) / (1.222228f))"
+    },
+    "temp_rise_rate": {
+      "index": 20,
+      "unit": "degrees Celsius/second",
+      "mean": 0.005059,
+      "std": 0.000757,
+      "median": 0.005182,
+      "iqr": 0.001437,
+      "min": 0.003628,
+      "max": 0.006322,
+      "c_code_scaling_macro": "((raw_temp_rise_rate - (0.005059f)) / (0.000757f))"
+    },
+    "temp_std": {
+      "index": 21,
+      "unit": "degrees Celsius",
+      "mean": 3.927295,
+      "std": 0.411475,
+      "median": 4.015,
+      "iqr": 0.7925,
+      "min": 3.104,
+      "max": 4.528,
+      "c_code_scaling_macro": "((raw_temp_std - (3.927295f)) / (0.411475f))"
+    },
+    "energy_wh": {
+      "index": 22,
+      "unit": "Watt-hours",
+      "mean": 5.482469,
+      "std": 0.864934,
+      "median": 5.33605,
+      "iqr": 1.57675,
+      "min": 3.9243,
+      "max": 7.2595,
+      "c_code_scaling_macro": "((raw_energy_wh - (5.482469f)) / (0.864934f))"
+    }
+  }
+}

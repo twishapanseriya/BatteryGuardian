@@ -1,0 +1,93 @@
+{
+  "milestone": 10,
+  "title": "BatteryGuardian AI - Feature Engineering & Normalization Report",
+  "dataset_name": "NASA Ames PCoE Battery Aging Dataset",
+  "total_cycles_processed": 636,
+  "partition_sizes": {
+    "train": 336,
+    "val": 168,
+    "test": 132
+  },
+  "total_features_extracted": 25,
+  "hardware_reproducible_features_count": 23,
+  "lab_only_features_count": 2,
+  "hardware_features_list": [
+    "duration_s",
+    "v_start",
+    "v_end",
+    "v_min",
+    "v_max",
+    "v_mean",
+    "v_drop",
+    "v_std",
+    "voltage_slope",
+    "v_skew",
+    "dc_internal_resistance",
+    "i_mean",
+    "i_min",
+    "i_max",
+    "t_start",
+    "t_end",
+    "t_min",
+    "t_max",
+    "t_mean",
+    "temp_rise",
+    "temp_rise_rate",
+    "temp_std",
+    "energy_wh"
+  ],
+  "feature_units": {
+    "duration_s": "seconds",
+    "v_start": "Volts",
+    "v_end": "Volts",
+    "v_min": "Volts",
+    "v_max": "Volts",
+    "v_mean": "Volts",
+    "v_drop": "Volts",
+    "v_std": "Volts",
+    "voltage_slope": "Volts/second",
+    "v_skew": "dimensionless",
+    "dc_internal_resistance": "Ohms",
+    "i_mean": "Amperes",
+    "i_min": "Amperes",
+    "i_max": "Amperes",
+    "t_start": "degrees Celsius",
+    "t_end": "degrees Celsius",
+    "t_min": "degrees Celsius",
+    "t_max": "degrees Celsius",
+    "t_mean": "degrees Celsius",
+    "temp_rise": "degrees Celsius",
+    "temp_rise_rate": "degrees Celsius/second",
+    "temp_std": "degrees Celsius",
+    "energy_wh": "Watt-hours"
+  },
+  "normalization_methods": [
+    "StandardScaler: z = (x - mean) / std (Zero mean, unit variance)",
+    "RobustScaler: z = (x - median) / IQR (Percentile-based, outlier-resistant)"
+  ],
+  "leakage_checks_passed": [
+    "Scalers fitted EXCLUSIVELY on training data (B0005, B0006).",
+    "Zero validation or test data touched during fit.",
+    "Features are purely intra-cycle; zero future-cycle lookahead.",
+    "Targets (capacity, SoH, RUL) strictly excluded from feature matrix."
+  ],
+  "hardware_reproducibility_alignment": {
+    "voltage_divider": "duration_s, v_start, v_end, v_min, v_max, v_mean, v_drop, v_std, voltage_slope, v_skew, dc_internal_resistance",
+    "ina219_current_sensor": "i_mean, i_min, i_max, dc_internal_resistance, energy_wh",
+    "ds18b20_temperature_probes": "t_start, t_end, t_min, t_max, t_mean, temp_rise, temp_rise_rate, temp_std",
+    "mcu_timer": "duration_s, temp_rise_rate, voltage_slope",
+    "c_code_deployment_ready": true
+  },
+  "artifacts_generated": [
+    "data/public/processed/nasa_pcoe/nasa_pcoe_features_unscaled.csv",
+    "data/public/processed/nasa_pcoe/train_features.csv",
+    "data/public/processed/nasa_pcoe/val_features.csv",
+    "data/public/processed/nasa_pcoe/test_features.csv",
+    "data/public/processed/nasa_pcoe/train_features_scaled.csv",
+    "data/public/processed/nasa_pcoe/val_features_scaled.csv",
+    "data/public/processed/nasa_pcoe/test_features_scaled.csv",
+    "data/public/processed/nasa_pcoe/feature_scaler_standard.pkl",
+    "data/public/processed/nasa_pcoe/feature_scaler_robust.pkl",
+    "data/public/processed/nasa_pcoe/feature_scaler_params.json"
+  ]
+}
