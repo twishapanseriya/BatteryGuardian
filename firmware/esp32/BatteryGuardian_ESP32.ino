@@ -6,10 +6,12 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-// --- Milestone 12: Machine Learning Headers ---
+// --- Milestone 12:SOH AND RUL  Machine Learning Headers ---
 #include "scaler_params.h"
 #include "model_weights.h"
 #include "model_inference.h"
+#include "rul_model.h"
+
 
 // --- Hardware Pin Definitions ---
 #define I2C_SDA          21
@@ -235,6 +237,8 @@ void loop() {
     // Run the on-device prediction 
     float predicted_soh = predict_soh_pct(raw_features);
 
+// Run the on-device RUL prediction (Random Forest)
+    float predicted_rul = score(raw_features);
 
 
 
@@ -271,7 +275,8 @@ void loop() {
     }
 
 //milestone 12 update
-Serial.printf("AI PREDICT| State of Health (SoH): %.2f%%\n", predicted_soh);
+Serial.printf("AI PREDICT| SoH: %.2f%%  | RUL: %.1f cycles\n", predicted_soh, predicted_rul);
+
 
     Serial.println(F("=========================================================\n"));
     Serial.flush();
