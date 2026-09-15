@@ -29,12 +29,12 @@ ridge_soh.fit(X_train_scaled, y_soh_train)
 
 print("Training Random Forest for Remaining Useful Life (RUL)...")
 # Kept n_estimators low (30) to ensure it fits safely in ESP32 flash memory without lagging
-rf_rul = RandomForestRegressor(n_estimators=30, max_depth=8, random_state=42)
+rf_rul = RandomForestRegressor(n_estimators=10, max_depth=5, random_state=42)
 rf_rul.fit(X_train, y_rul_train)
 
 # 4. Export Models to C++ Code via m2cgen
-soh_c_code = m2c.export_to_c(ridge_soh)
-rul_c_code = m2c.export_to_c(rf_rul)
+soh_c_code = m2c.export_to_c(ridge_soh, function_name="score_soh")
+rul_c_code = m2c.export_to_c(rf_rul, function_name="score_rul")
 
 # Save SoH model header
 with open("models/model_weights.h", "w") as f:
